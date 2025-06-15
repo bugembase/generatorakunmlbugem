@@ -37,7 +37,7 @@ let listdata = [
 
 function generateData() {
     if (listdata.length === 0) {
-        data.innerHTML = "Stok Akun Habis wak";
+        data.innerHTML = "STOK AKUN HABIS";
         return;
     }
 
@@ -59,7 +59,7 @@ function generateData() {
 
     // Countdown disable tombol
     tombol.disabled = true;
-    let countdown = 60;
+    let countdown = 10;
     tombol.innerText = `Tunggu ${countdown}s`;
 
     let interval = setInterval(() => {
