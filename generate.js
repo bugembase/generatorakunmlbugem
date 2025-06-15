@@ -69,7 +69,7 @@ function generateData() {
         if (countdown === 0) {
             clearInterval(interval);
             tombol.disabled = false;
-            tombol.innerText = "Generate Akun";
+            tombol.innerText = "Generate";
         }
     }, 1000);
 }
