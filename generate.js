@@ -41,15 +41,25 @@ function generateData() {
         return;
     }
 
-    const randomIndex = Math.floor(Math.random() * listdata.length);
-    const selectedText = listdata[randomIndex];
-    data.innerHTML = selectedText;
+    // Tentukan jumlah akun yang ingin ditampilkan
+    const jumlahAkun = Math.min(10, listdata.length); // Maksimal 10, atau sisa data
 
-    listdata.splice(randomIndex, 1); // Hapus agar tidak muncul lagi
+    // Ambil akun acak sebanyak jumlahAkun
+    let hasil = [];
 
+    for (let i = 0; i < jumlahAkun; i++) {
+        const randomIndex = Math.floor(Math.random() * listdata.length);
+        const selected = listdata[randomIndex];
+        hasil.push(selected);
+        listdata.splice(randomIndex, 1); // Hapus dari list agar tidak muncul lagi
+    }
+
+    // Tampilkan hasil sebagai daftar
+    data.innerHTML = hasil.map(item => `<li>${item}</li>`).join('');
+
+    // Countdown disable tombol
     tombol.disabled = true;
     let countdown = 60;
-
     tombol.innerText = `Tunggu ${countdown}s`;
 
     let interval = setInterval(() => {
